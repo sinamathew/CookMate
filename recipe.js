@@ -11,6 +11,18 @@ class Recipe {
     this.#dietInfo = dietInfo;
     this.additionalInfo = additionalInfo;
   }
+
+  get ingredents() {
+    return this.#ingredents;
+  }
+
+  get instructions() {
+    return this.#instructions;
+  }
+
+  get dietInfo() {
+    return this.#dietInfo;
+  }
 }
 
 
@@ -21,7 +33,11 @@ const createRecipe = (name, description, ingredents, instructions, dietInfo, add
 const nigerianJollof = createRecipe("Nigerian Jollof", 
   "A delicious meal made with rice in Nigerian style.", 
   ['rice', 'vegetable oil', 'beef', 'ponmo', 'ogufe', 'salt', 'crayfish', 'green bean', 'carrot', 'onions', 'catfish', 'tomatoes', 'cammeroun pepper' ],
-  ['get all neccesary ingredents', 'wash and preboil your rice for 800 years', 'then wait'],
+  ['get all neccesary ingredents', 'wash and preboil your rice for 800 years', 'then wait...'],
   "I dont know yet", { cookTime: 'Eternity', serves: 4 });
 
 console.log(nigerianJollof);
+console.log(nigerianJollof.ingredents);
+console.log(nigerianJollof.dietInfo);
+console.log(nigerianJollof.instructions);
+
