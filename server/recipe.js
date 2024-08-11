@@ -4,17 +4,17 @@ class Recipe {
   #description;
   #ingredents;
   #instructions;
+  #notes;
   #dietInfo;
-  #additionalInfo;
-
+  
   // Initializing the class
-  constructor(name, description, ingredents, instructions, dietInfo, additionalInfo) {
-    this.name = name;
-    this.description = description;
+  constructor(name, description, ingredents, instructions, notes, dietInfo) {
+    this.#name = name;
+    this.#description = description;
     this.#ingredents = ingredents;
     this.#instructions = instructions;
+    this.#notes = notes;
     this.#dietInfo = dietInfo;
-    this.additionalInfo = additionalInfo;
   }
 
   // Getter methods for the private properties
@@ -26,8 +26,8 @@ class Recipe {
     return this.#description;
   }
 
-  get additionalInfo() {
-    return this.#additionalInfo;
+  get notes() {
+    return this.#notes;
   }
 
   get ingredents() {
@@ -42,7 +42,6 @@ class Recipe {
     return this.#dietInfo;
   }
 }
-
 
 // A function to create new recipe
 export const createRecipe = (name, description, ingredents, instructions, dietInfo, additionalInfo) => {

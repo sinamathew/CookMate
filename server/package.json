@@ -1,15 +1,15 @@
 {
-  "name": "node-express-api",
-  "description": "Simple api sample in Node",
+  "name": "cookmate",
+  "description": "Simple recipe app",
   "version": "1.0.0",
   "private": true,
-  "main": "index.js",
+  "main": "server.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon index.js",
-    "start": "node index.js"
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
-  "author": "Google LLC",
+  "author": "Sina Mathew",
   "license": "Apache-2.0",
   "dependencies": {
     "express": "^4.17.1"
