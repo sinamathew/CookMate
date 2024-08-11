@@ -1,8 +1,13 @@
 class Recipe {
+  // Created private properties
+  #name;
+  #description;
   #ingredents;
   #instructions;
   #dietInfo;
+  #additionalInfo;
 
+  // Initializing the class
   constructor(name, description, ingredents, instructions, dietInfo, additionalInfo) {
     this.name = name;
     this.description = description;
@@ -10,6 +15,19 @@ class Recipe {
     this.#instructions = instructions;
     this.#dietInfo = dietInfo;
     this.additionalInfo = additionalInfo;
+  }
+
+  // Getter methods for the private properties
+  get name() {
+    return this.#name
+  }
+
+  get description() {
+    return this.#description;
+  }
+
+  get additionalInfo() {
+    return this.#additionalInfo;
   }
 
   get ingredents() {
@@ -26,18 +44,8 @@ class Recipe {
 }
 
 
-const createRecipe = (name, description, ingredents, instructions, dietInfo, additionalInfo) => {
+// A function to create new recipe
+export const createRecipe = (name, description, ingredents, instructions, dietInfo, additionalInfo) => {
   return new Recipe(name, description, ingredents, instructions, dietInfo, additionalInfo);
 }
-
-const nigerianJollof = createRecipe("Nigerian Jollof", 
-  "A delicious meal made with rice in Nigerian style.", 
-  ['rice', 'vegetable oil', 'beef', 'ponmo', 'ogufe', 'salt', 'crayfish', 'green bean', 'carrot', 'onions', 'catfish', 'tomatoes', 'cammeroun pepper' ],
-  ['get all neccesary ingredents', 'wash and preboil your rice for 800 years', 'then wait...'],
-  "I dont know yet", { cookTime: 'Eternity', serves: 4 });
-
-console.log(nigerianJollof);
-console.log(nigerianJollof.ingredents);
-console.log(nigerianJollof.dietInfo);
-console.log(nigerianJollof.instructions);
 
