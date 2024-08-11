@@ -4,7 +4,7 @@ const app = express();
 
 app.get('/', (req, res) => {
   const name = process.env.NAME || 'World';
-  res.send(availableRecipe[0].ingredents);
+  res.send(availableRecipe[7].dietInfo.allergens);
 });
 
 const port = parseInt(process.env.PORT) || 3000;
