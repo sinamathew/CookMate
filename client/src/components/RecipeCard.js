@@ -4,8 +4,8 @@ const RecipeCard = ({ recipe }) => {
   return (
     <div className="recipe-card">
       <img src={recipe.img} alt={recipe.title} />
-      <h2>{recipe.title}</h2>
-      <p>I'll add here later</p>
+      <h2>{recipe.name}</h2>
+      <p>{recipe.description}</p>
       <a href="#">View Recipe</a>
     </div>
   );

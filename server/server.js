@@ -1,13 +1,18 @@
-import { availableRecipe } from './nigerianRecipe.js';
-import express from 'express';
+const express = require('express');
+const fs = require('fs');
 const app = express();
+const port = 5000;
 
-app.get('/', (req, res) => {
-  const name = process.env.NAME || 'World';
-  res.send(availableRecipe[0].name);
+// Route to serve recipes
+app.get('/api/recipes', (req, res) => {
+  fs.readFile('../data/recipe.json', 'utf-8', (err, data) => {
+    if (err) {
+      return res.status(500).json({ error: "Failed to read data" });
+    }
+    res.json(JSON.parse(data)); // Serve recipes as JSON
+  });
 });
 
-const port = parseInt(process.env.PORT) || 3000;
 app.listen(port, () => {
-  console.log(`listening on port ${port}`);
+  console.log(`Server running on port ${port}`);
 });
