@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import RecipeSection from "./components/RecipeSection";
 import Footer from "./components/Footer";
-import "./styles.css";
+import "./style.css";
 
 function App() {
   return (
@@ -15,5 +15,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
