@@ -2,6 +2,7 @@
     {
       "id": "b7d65c2f-1e9d-4f0c-9001-bbf3d9eac84b",
       "name": "Nigerian Jollof",
+      "img": "./recipeImage/nigerianJollof.jpg",
       "description": "A delicious and iconic Nigerian dish made with rice cooked in a flavorful tomato sauce.",
       "ingredients": [
         "rice",
@@ -42,6 +43,7 @@
     {
       "id": "a1e94cda-3672-4c6c-93ea-65c8f82a11f7",
       "name": "Egusi Soup",
+      "img": "./recipeImage/egusiSoup.jpg",
       "description": "A popular Nigerian soup made with melon seeds, packed with flavor and nutrition.",
       "ingredients": [
         "egusi",
@@ -78,6 +80,7 @@
     {
       "id": "b6cb4e8a-947f-4566-a8eb-fb1dc9dc748f",
       "name": "Pounded Yam and Efo Riro",
+      "img": "./recipeImage/poundedYamAndEfoRiro.jpg",
       "description": "A classic Nigerian dish served with richly spiced vegetable stew.",
       "ingredients": [
         "yam",
@@ -115,6 +118,7 @@
     {
       "id": "6a8e5d73-128e-4ab3-9957-27aeaf739b8b",
       "name": "Suya",
+      "img": "./recipeImage/suya.jpg",
       "description": "A spicy grilled meat skewer popular in Nigeria, known for its rich and smoky flavor.",
       "ingredients": [
         "beef",
@@ -149,6 +153,7 @@
     {
       "id": "cb1d80ef-7c43-40d8-9f28-7652c6b9f5f8",
       "name": "Moi Moi",
+      "img": "./recipeImage/moiMoi.jpg",
       "description": "A steamed bean pudding made from blended peeled beans, enjoyed across Nigeria.",
       "ingredients": [
         "peeled beans",
