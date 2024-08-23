@@ -15,7 +15,7 @@ header {
   height: 60px;
   width: 100%;
   background: #222122;
-  color: #fff;
+  color: rgb(245, 37, 9);
   display: flex;
   align-items: center;
 }
@@ -45,12 +45,13 @@ nav ul li {
 }
 
 nav ul li a {
-  color: #fff;
+  color: rgb(245, 37, 9);
   text-decoration: none;
 }
 
 .logo {
   font-size: 24px;
+  color: rgb(245, 37, 9);
 }
 
 .hero {
@@ -58,7 +59,7 @@ nav ul li a {
   height: auto;
   background: url(./images/hero-image.jpg) no-repeat center center;
   background-size: cover;
-  color: #000;
+  color: #fff;
   text-align: center;
   padding: 140px 0;
   margin-bottom: 20px;
