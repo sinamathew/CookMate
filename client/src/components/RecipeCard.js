@@ -1,0 +1,14 @@
+import React from "react";
+
+const RecipeCard = ({ recipe }) => {
+  return (
+    <div className="recipe-card">
+      <img src={recipe.img} alt={recipe.title} />
+      <h2>{recipe.name}</h2>
+      <p>{recipe.description}</p>
+      <a href="#">View Recipe</a>
+    </div>
+  );
+};
+
+export default RecipeCard;
