@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './Header.css';
 
 const Header = () => {
   // State to track if the menu is open or closed

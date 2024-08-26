@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import RecipeCard from "./RecipeCard";
+import './RecipeSection.css';
 
 const RecipeSection = () => {
   const [recipes, setRecipes] = useState([]); // State to hold fetched recipes
