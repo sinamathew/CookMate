@@ -1,0 +1,49 @@
+.hero {
+    width: 100%;
+    height: auto;
+    background: url(./images/hero-image.jpg) no-repeat center center;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    padding: 140px 0;
+    margin-bottom: 20px;
+  }
+  
+  .hero h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  
+  .hero p {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .search-box {
+    max-width: 550px;
+    margin: 15px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .search-box input {
+    width: 70%;
+    padding: 10px;
+    outline: none;
+    border: 1px solid rgb(245, 37, 9);
+    border-radius: 5px 0 0 5px;
+    font-size: 1rem;
+  }
+  
+  .search-box button {
+    padding: 10px 20px;
+    outline: none;
+    border: 0;
+    border-radius: 0px 5px 5px 0px;
+    font-size: 1rem;
+    background: rgb(245, 37, 9);
+    color: #fff;
+    cursor: pointer;
+  }
+  

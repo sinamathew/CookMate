@@ -3,11 +3,11 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import RecipeSection from "./components/RecipeSection";
 import Footer from "./components/Footer";
-import "./style.css";
+import "./Home.css";
 
-function App() {
+function Home() {
   return (
-    <div className="App">
+    <div className="Home">
       <Header />
       <Hero />
       <RecipeSection />
@@ -15,4 +15,4 @@ function App() {
     </div>
   );
 }
-export default App;
+export default Home;
