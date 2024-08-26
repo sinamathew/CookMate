@@ -12,7 +12,10 @@
   "author": "Sina Mathew, Juliet Obiyor",
   "license": "Apache-2.0",
   "dependencies": {
-    "express": "^4.17.1"
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^8.5.4",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"

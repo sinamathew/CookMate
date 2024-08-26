@@ -8,7 +8,10 @@
     pkgs.nodejs_20
   ];
   # Sets environment variables in the workspace
-  env = {};
+  env = {
+    MONGODB_URL = "mongodb+srv://CookMate:xe36xFfCHD9hBTRg@cookmate.u3795.mongodb.net/?retryWrites=true&w=majority&appName=CookMate";
+    PORT = "5000";
+  };
   idx = {
     # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
     extensions = [
