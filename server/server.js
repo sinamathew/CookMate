@@ -86,6 +86,11 @@ app.use('/api/recipes', recipeRouter);
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, '../client/build')));
 
+// Catch-all handler to serve the React app for all other routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+});
+
 // Connect to MongoDB
 mongoose
   .connect(mongoDBURL)
