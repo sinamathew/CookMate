@@ -24,10 +24,11 @@ const Header = () => {
 
           {/* Navigation list */}
           <ul className={`nav-list ${isMenuOpen ? "active" : ""}`}>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Recipes</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="about">About</a></li>
+            <li><a href="recipes">Recipes</a></li>
+            <li><a href="login">Login</a></li>
+            <li><a href="register">Register</a></li>
           </ul>
         </nav>
       </div>
