@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './Header';
-import Hero from './RecipeHero';
+import RecipeHero from './RecipeHero';
 import RecipeSection from './RecipeSection';
 import Footer from './Footer';
 import './Recipes.css';

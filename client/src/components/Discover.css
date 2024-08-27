@@ -3,7 +3,7 @@ div.discover-section {
     max-width: 1920px;
     height: auto;
     background-color: #fff;
-    padding: 80px 100px auto auto;
+    padding: 80px auto;
     margin: 0 auto;
 }
 
@@ -23,7 +23,7 @@ div.discover-section > div.discover > h2 {
     padding: 0 auto;
     padding-bottom: o;
     text-align: center;
-    font-size: 3rem;
+    font-size: 2.8rem;
     font-weight: bold;
 
 }
@@ -39,8 +39,8 @@ div.discover-section > div.discover > p.tagline {
     text-align: center;
     font-size: 1.2rem;
     font-weight: bold;
-    padding-top: 50px;
-    margin-top: 50px;
+    padding-top: 20px;
+    margin-top: 20px;
 }
 
 div.discover-section > div.discover-features {
@@ -74,7 +74,7 @@ div.discover-section > div.discover-features > span > img {
 
 div.discover-section > div.discover-features > span > h3 {
     color: rgb(245, 37, 9);
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: bold;
     margin-top: 0;
     margin-bottom: 5px;
@@ -126,12 +126,12 @@ div.discover-mime > div.mime > span.text {
 
 div.discover-mime > div.mime > span.text > h2 {
     color: rgb(245, 37, 9);
-    font-size: 2.8rem;
+    font-size: 2.4rem;
     font-weight: bold;
 }
 
 div.discover-mime > div.mime > span.text > p {
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin: 0;
 }
 
@@ -152,7 +152,7 @@ div.discover-mime > div.mime > span.text > span.subtext-parent > span.subtext {
 
 div.discover-mime > div.mime > span.text > span.subtext-parent > span.subtext > h3 {
     color: rgb(245, 37, 9);
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: bold;
     margin-right: 10px;
     margin-bottom: 0;

@@ -4,7 +4,7 @@ import './RecipeHero.css';
 const RecipeHero = () => {
   return (
     <section className="recipe-hero">
-      <div className="hero-section">
+      <div className="recipe-hero-section">
         <h2>Welcome to Our Recipe Collection</h2>
         <p>Search mouth-watering recipes to satisfy your craving.</p>
 

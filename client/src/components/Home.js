@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
-import Hero from './HomeHero';
+import HomeHero from './HomeHero';
 import Discover from './Discover';
 import "./Home.css";
 
