@@ -1,7 +1,7 @@
-.hero {
+.recipe-hero {
     width: 100%;
     height: auto;
-    background: url(./images/hero-image.jpg) no-repeat center center;
+    background: url(./images/recipe-hero-image.jpg) no-repeat center center;
     background-size: cover;
     color: #fff;
     text-align: center;
@@ -9,12 +9,12 @@
     margin-bottom: 20px;
   }
   
-  .hero h2 {
+  .recipe-hero h2 {
     font-size: 36px;
     margin-bottom: 10px;
   }
   
-  .hero p {
+  .recipe-hero p {
     font-size: 20px;
     margin-bottom: 10px;
   }
