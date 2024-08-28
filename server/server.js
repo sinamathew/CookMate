@@ -5,7 +5,6 @@ import fs from 'fs';
 import path from 'path';
 import mongoose from 'mongoose';
 import passport from 'passport';
-import LocalStrategy from 'passport-local';
 import { fileURLToPath } from 'url';
 import flash from 'connect-flash';
 import Recipe from './models/recipeModel.js';
@@ -54,40 +53,6 @@ app.use((req, res, next) => {
 // Passport initialization
 app.use(passport.initialize());
 app.use(passport.session());
-
-// Passport Local Strategy for Login
-passport.use(
-  new LocalStrategy(async (username, password, done) => {
-    try {
-      const user = await User.findOne({ username });
-      if (!user) {
-        return done(null, false, { message: 'Incorrect username.' });
-      }
-      const isValidPassword = await bcrypt.compare(password, user.password);
-      if (!isValidPassword) {
-        return done(null, false, { message: 'Incorrect password.' });
-      }
-      return done(null, user);
-    } catch (error) {
-      return done(error);
-    }
-  })
-);
-
-// Serialize user ID into session
-passport.serializeUser((user, done) => {
-  done(null, user.username);
-});
-
-// Deserialize user from session
-passport.deserializeUser(async (username, done) => {
-  try {
-    const user = await User.findOne({ username });
-    done(null, user);
-  } catch (error) {
-    done(error, false);
-  }
-});
 
 // Use the user routes
 app.use('/users', userRouter);

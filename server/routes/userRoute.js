@@ -1,11 +1,47 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
 import passport from 'passport';
+import LocalStrategy from 'passport-local';
 import { v4 as uuidv4 } from 'uuid';
 import nodemailer from 'nodemailer';
 import User from '../models/userModel.js';
 
 const userRouter = express.Router();
+
+// Passport Local Strategy for Login
+passport.use(
+  new LocalStrategy(async (email, password, done) => {
+    try {
+      const user = await User.findOne({ email });
+      if (!user) {
+        return done(null, false, { message: 'Invalid email.' });
+      }
+      const isValidPassword = await bcrypt.compare(password, user.password);
+      if (!isValidPassword) {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
+      return done(null, user);
+    } catch (error) {
+      console.error('Error in LocalStrategy:', error); // Log the error
+      return done(error);
+    }
+  })
+);
+
+// Serialize user ID into session
+passport.serializeUser((user, done) => {
+  done(null, user._id); // Use user._id instead of username
+});
+
+// Deserialize user from session
+passport.deserializeUser(async (id, done) => {
+  try {
+    const user = await User.findById(id); // Find user by ID
+    done(null, user);
+  } catch (error) {
+    done(error, false);
+  }
+});
 
 // Register Route
 userRouter.post('/register', async (req, res) => {
@@ -52,7 +88,7 @@ userRouter.post('/register', async (req, res) => {
     });
 
     // Construct the verification URL
-    const verificationUrl = `http://cookmate.sinamathew.tech/verify-email?token=${verificationToken}`;
+    const verificationUrl = `http://cookmate.sinamathew.tech/users/verify-email?token=${verificationToken}`;
     const mailOptions = {
       from: process.env.EMAIL,
       to: email,
