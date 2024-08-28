@@ -1,11 +1,10 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import './Header.css';
 
 const Header = () => {
-  // State to track if the menu is open or closed
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Function to toggle menu state
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -15,19 +14,16 @@ const Header = () => {
       <div className="container">
         <h1 className="logo">CookMate</h1>
         <nav>
-          {/* Hamburger icon */}
           <div className="hamburger" onClick={toggleMenu}>
             <div className="line"></div>
             <div className="line"></div>
             <div className="line"></div>
           </div>
-
-          {/* Navigation list */}
           <ul className={`nav-list ${isMenuOpen ? "active" : ""}`}>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Recipes</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/recipes">Recipes</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
           </ul>
         </nav>
       </div>
