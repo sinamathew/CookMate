@@ -1,6 +1,10 @@
 footer {
-    background: #333;
-    padding: 20px 0;
-    color: #fff;
-    text-align: center;
-  }
+  background: #333;
+  padding: 20px 0;
+  color: #fff;
+  text-align: center;
+}
+
+footer > div > p {
+  color: rgb(245, 37, 9);
+}

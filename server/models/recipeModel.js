@@ -17,7 +17,6 @@ const nutritionSchema = new mongoose.Schema({
 
 // Define the schema for recipe
 const recipeSchema = new mongoose.Schema({
-  id: { type: String, required: true, unique: true },
   name: { type: String, required: true, },
   img: { type: String },  // Assuming image will be stored as a string URL or path
   description: { type: String, required: true },

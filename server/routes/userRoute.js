@@ -1,11 +1,50 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
 import passport from 'passport';
+import { Strategy as LocalStrategy } from 'passport-local';
 import { v4 as uuidv4 } from 'uuid';
 import nodemailer from 'nodemailer';
 import User from '../models/userModel.js';
 
 const userRouter = express.Router();
+
+// Passport Local Strategy for Login
+passport.use(
+  new LocalStrategy(
+    { usernameField: 'email', passwordField: 'password' }, // Tell Passport to use 'email' instead of 'username'
+    async (email, password, done) => {
+      try {
+        const user = await User.findOne({ email });
+        if (!user) {
+          return done(null, false, { message: 'Invalid email.' });
+        }
+        const isValidPassword = await bcrypt.compare(password, user.password);
+        if (!isValidPassword) {
+          return done(null, false, { message: 'Incorrect password.' });
+        }
+        return done(null, user);
+      } catch (error) {
+        console.error('Error in LocalStrategy:', error);
+        return done(error);
+      }
+    }
+  )
+);
+
+// Serialize user ID into session
+passport.serializeUser((user, done) => {
+  done(null, user._id); // Use user._id instead of username
+});
+
+// Deserialize user from session
+passport.deserializeUser(async (id, done) => {
+  try {
+    const user = await User.findById(id); // Find user by ID
+    done(null, user);
+  } catch (error) {
+    done(error, false);
+  }
+});
 
 // Register Route
 userRouter.post('/register', async (req, res) => {
@@ -52,7 +91,7 @@ userRouter.post('/register', async (req, res) => {
     });
 
     // Construct the verification URL
-    const verificationUrl = `http://cookmate.sinamathew.tech/verify-email?token=${verificationToken}`;
+    const verificationUrl = `http://cookmate.sinamathew.tech/users/verify-email?token=${verificationToken}`;
     const mailOptions = {
       from: process.env.EMAIL,
       to: email,
@@ -89,26 +128,27 @@ userRouter.get('/verify-email', async (req, res) => {
 });
 
 // Login Route
-userRouter.post(
-  '/login',
-  passport.authenticate('local', {
-    successRedirect: '/recipes',
-    failureRedirect: '/login',
-    failureFlash: true,
-  })
-);
-
-// Logout Route
-userRouter.post('/logout', (req, res) => {
-  req.logout(err => {
+userRouter.post('/login', (req, res, next) => {
+  // Use Passport to authenticate the user
+  passport.authenticate('local', (err, user, info) => {
     if (err) {
-      return res.status(500).json({ message: 'Logout failed' });
+      // Handle authentication errors
+      return res.status(500).json({ success: false, message: 'Internal server error' });
     }
-    req.session.destroy(); // Destroy the session after logout
-    res.clearCookie('connect.sid'); // Clear the session cookie
-    res.status(200).json({ message: 'Logged out successfully' });
-    res.redirect('/');
-  });
+    if (!user) {
+      // Handle authentication failure
+      return res.status(400).json({ success: false, message: info.message || 'Login failed' });
+    }
+    // Handle successful authentication
+    req.logIn(user, (err) => {
+      if (err) {
+        // Handle login error
+        return res.status(500).json({ success: false, message: 'Login failed' });
+      }
+      // Login successful
+      return res.status(200).json({ success: true, message: 'Login successful', user });
+    });
+  })(req, res, next);
 });
 
 // Check the authentication status of the user
@@ -118,6 +158,22 @@ userRouter.get('/check-auth', (req, res) => {
   } else {
     return res.status(200).json({ isAuthenticated: false });
   }
+});
+
+// Logout Route
+userRouter.post('/logout', (req, res) => {
+  req.logout((err) => {
+    if (err) {
+      return res.status(500).json({ message: 'Logout failed' });
+    }
+    req.session.destroy((err) => {
+      if (err) {
+        return res.status(500).json({ message: 'Session destruction failed' });
+      }
+      res.clearCookie('connect.sid'); // Clear the session cookie
+      res.status(200).json({ message: 'Logged out successfully' }); // Send JSON response
+    });
+  });
 });
 
 export default userRouter;

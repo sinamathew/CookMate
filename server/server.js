@@ -5,7 +5,6 @@ import fs from 'fs';
 import path from 'path';
 import mongoose from 'mongoose';
 import passport from 'passport';
-import LocalStrategy from 'passport-local';
 import { fileURLToPath } from 'url';
 import flash from 'connect-flash';
 import Recipe from './models/recipeModel.js';
@@ -31,6 +30,7 @@ app.use(express.json());
 // Enable CORS for all routes
 app.use(cors());
 
+
 // Session Setup
 app.use(
   session({
@@ -55,39 +55,14 @@ app.use((req, res, next) => {
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Passport Local Strategy for Login
-passport.use(
-  new LocalStrategy(async (username, password, done) => {
-    try {
-      const user = await User.findOne({ username });
-      if (!user) {
-        return done(null, false, { message: 'Incorrect username.' });
-      }
-      const isValidPassword = await bcrypt.compare(password, user.password);
-      if (!isValidPassword) {
-        return done(null, false, { message: 'Incorrect password.' });
-      }
-      return done(null, user);
-    } catch (error) {
-      return done(error);
-    }
-  })
-);
-
-// Serialize user ID into session
-passport.serializeUser((user, done) => {
-  done(null, user.username);
-});
-
-// Deserialize user from session
-passport.deserializeUser(async (username, done) => {
-  try {
-    const user = await User.findOne({ username });
-    done(null, user);
-  } catch (error) {
-    done(error, false);
+// Authentication check middleware
+const isAuthenticated = (req, res, next) => {
+  if (req.isAuthenticated()) { // Assuming req.isAuthenticated is correctly set up
+    return next();
   }
-});
+  // Redirect to home page if not authenticated
+  res.redirect('/');
+};
 
 // Use the user routes
 app.use('/users', userRouter);
@@ -96,6 +71,28 @@ app.use('/api/recipes', recipeRouter);
 
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, '../client/build')));
+
+// Route for '/recipes'
+app.get('/recipes', isAuthenticated, (req, res, next) => {
+  // If authenticated, serve React app for '/recipes'
+  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+});
+
+app.get('/new', isAuthenticated, (req, res, next) => {
+  // If authenticated, serve React app for '/new'
+  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+})
+
+// Redirect login to recipes if auth
+app.get('/login', (req, res, next) => {
+  if (req.isAuthenticated()) {
+    // If authenticated, redirect to the '/recipes' page
+    return res.redirect('/recipes');
+  }
+
+  // If not authenticated, serve the login page
+  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+});
 
 // Catch-all handler to serve the React app for all other routes
 app.get('*', (req, res) => {
