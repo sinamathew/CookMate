@@ -65,13 +65,13 @@ passport.use(
 
 // Serialize user ID into session
 passport.serializeUser((user, done) => {
-  done(null, user.id);
+  done(null, user.username);
 });
 
 // Deserialize user from session
-passport.deserializeUser(async (id, done) => {
+passport.deserializeUser(async (username, done) => {
   try {
-    const user = await User.findById(id);
+    const user = await User.findOne({ username });
     done(null, user);
   } catch (error) {
     done(error, false);

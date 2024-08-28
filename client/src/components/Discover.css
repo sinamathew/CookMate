@@ -1,9 +1,9 @@
 div.discover-section {
     width: auto;
+    background-color: #fff;
     max-width: 1920px;
     height: auto;
-    background-color: #fff;
-    padding: 80px auto;
+    padding: 80px auto 0 auto;
     margin: 0 auto;
 }
 
@@ -21,7 +21,7 @@ div.discover-section > div.discover > h2 {
     color: rgb(245, 37, 9);
     margin: 0 auto;
     padding: 0 auto;
-    padding-bottom: o;
+    padding-bottom: 0;
     text-align: center;
     font-size: 2.8rem;
     font-weight: bold;
@@ -89,10 +89,9 @@ div.discover-section > div.discover-features > span > p {
 
 div.discover-mime {
     width: 100%;
-    max-width: 1920px;
-    height: auto;
     background-color: #fff;
-    padding: 80px 200px auto auto;
+    max-width: 1920px;
+    padding: 0 auto;
     margin: 0 auto;
 }
 
@@ -128,16 +127,21 @@ div.discover-mime > div.mime > span.text > h2 {
     color: rgb(245, 37, 9);
     font-size: 2.4rem;
     font-weight: bold;
+    padding: 10px 0 10px 0;
+    margin: 10px 0 10px 0;
 }
 
 div.discover-mime > div.mime > span.text > p {
     font-size: 1rem;
-    margin: 0;
+    padding: 5px auto;
+    margin: 5px auto;
 }
 
 div.discover-mime > div.mime > span.text > span.subtext-parent {
     display: flex;
     flex-direction: row;
+    gap: 30px;
+    padding-top: 10px;
 }
 
 div.discover-mime > div.mime > span.text > span.subtext-parent > span.subtext {
@@ -146,8 +150,8 @@ div.discover-mime > div.mime > span.text > span.subtext-parent > span.subtext {
     justify-content: center;
     align-items: flex-start;
     text-align: left;
-    padding: 0;
-    margin: 0;
+    padding: auto;
+    margin: auto;
 }
 
 div.discover-mime > div.mime > span.text > span.subtext-parent > span.subtext > h3 {
@@ -160,6 +164,95 @@ div.discover-mime > div.mime > span.text > span.subtext-parent > span.subtext > 
 
 div.discover-mime > div.mime > span.text > span.subtext-parent > span.subtext > p {
     font-size: 1rem;
-    margin-top: 0;
-    margin-bottom: 10px;
+    margin-top: 5px;
 }
+
+/* Mobile Device Version */
+@media (max-width: 768px) {
+    div.discover-section {
+      padding: 40px 20px;
+    }
+  
+    div.discover-section > div.discover > h2 {
+      font-size: 2rem;
+    }
+  
+    div.discover-section > div.discover > p {
+      font-size: 1rem;
+      padding: 20px 10px;
+    }
+  
+    div.discover-section > div.discover-features {
+      flex-direction: column;
+      padding: 20px 0;
+    }
+  
+    div.discover-section > div.discover-features > span {
+      width: 100%;
+      padding: 20px 0;
+    }
+  
+    div.discover-section > div.discover-features > span > img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 10px;
+    }
+  
+    div.discover-section > div.discover-features > span > h3 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+  
+    div.discover-section > div.discover-features > span > p {
+      font-size: 0.9rem;
+    }
+  
+    div.discover-mime {
+      padding: 40px 20px;
+    }
+  
+    div.discover-mime > div.mime {
+      flex-direction: column;
+      padding: 20px 0;
+      text-align: center;
+    }
+  
+    div.discover-mime > div.mime > img {
+      width: 80%;
+      margin: 0 auto 20px auto;
+      padding: 0;
+    }
+  
+    div.discover-mime > div.mime > span.text {
+      width: 100%;
+      padding: 0;
+    }
+  
+    div.discover-mime > div.mime > span.text > h2 {
+      font-size: 2rem;
+      margin: 10px 0;
+    }
+  
+    div.discover-mime > div.mime > span.text > p {
+      font-size: 1rem;
+      margin: 10px 0;
+    }
+  
+    div.discover-mime > div.mime > span.text > span.subtext-parent {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    div.discover-mime > div.mime > span.text > span.subtext-parent > span.subtext {
+      align-items: center;
+      text-align: center;
+    }
+  
+    div.discover-mime > div.mime > span.text > span.subtext-parent > span.subtext > h3 {
+      font-size: 1.4rem;
+    }
+  
+    div.discover-mime > div.mime > span.text > span.subtext-parent > span.subtext > p {
+      font-size: 0.9rem;
+    }
+}  

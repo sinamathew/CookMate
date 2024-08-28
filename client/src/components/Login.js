@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 import Header from './Header';
 import Footer from './Footer';
-import './Auth.css'
+import './Auth.css';
 
 const Login = () => {
+  const { setIsAuthenticated } = useContext(AuthContext);
   const [formData, setFormData] = useState({ email: '', password: '' });
-  
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -15,7 +17,15 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
+    // Simple form validation
+    if (!formData.email.includes('@') || formData.password.length < 6) {
+      setError('Please enter a valid email and password (min 6 characters).');
+      return;
+    }
+
+    setError('');
+
     // Sending data to the backend using POST
     fetch('/users/login', {
       method: 'POST',
@@ -26,10 +36,21 @@ const Login = () => {
     })
     .then(response => response.json())
     .then(data => {
-      // Handle response
-      console.log(data);
+      if (data.success) {
+        //Update auth status
+        setIsAuthenticated(true);
+
+        // Navigate to the dashboard or home page after successful login
+        navigate('/recipes');
+      } else {
+        // Display error message
+        setError(data.message || 'Login failed, please try again.');
+      }
     })
-    .catch(error => console.error('Error:', error));
+    .catch(error => {
+      console.error('Error:', error);
+      setError('An error occurred. Please try again later.');
+    });
   };
 
   return (
@@ -37,12 +58,27 @@ const Login = () => {
       <Header />
       <div className="auth">
         <h2>Login</h2>
+        {error && <p className="error-message">{error}</p>}
         <form onSubmit={handleSubmit}>
-          <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
-          <input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange} required />
+          <input 
+            type="email" 
+            name="email" 
+            placeholder="lagbaja.tamedu@ogbeni.awa" 
+            value={formData.email} 
+            onChange={handleChange} 
+            required 
+          />
+          <input 
+            type="password" 
+            name="password" 
+            placeholder="Password@1234" 
+            value={formData.password} 
+            onChange={handleChange} 
+            required 
+          />
           <button type="submit">Login</button>
         </form>
-        <p>Don't have an account? <span onClick={() => navigate('/register')}>Register</span></p>
+        <p>Don't have an account? <span onClick={() => navigate('/register')} className="register-link">Register</span></p>
       </div>
       <Footer />
     </>

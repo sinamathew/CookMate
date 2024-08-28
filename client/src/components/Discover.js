@@ -41,11 +41,11 @@ export default function Discover() {
                 <div className="mime">
                     <img src={mime1} alt="Mime 1" />
                     <span className="text">
-                        <h2>Discover the Benefits of CookMate for Easy, Enjoyable, and Successful Cooking</h2>
+                        <h2>Easy & Enjoyable Cooking.</h2>
                         <p>CookMate offers a variety of features, including ease of use, a vast recipe library, and successful culinary outcomes. With our intuitive platform, you can simplify your cooking journey and explore new, delicious recipes with ease.</p>
                         <span className="subtext-parent">
                             <span className="subtext">
-                                <h3>Discover New Flavors</h3>
+                                <h3>New Flavors</h3>
                                 <p>Explore a wide range of international and local recipes, all carefully curated to bring excitement to your kitchen.</p>
                             </span>
                             <span className="subtext">
@@ -59,15 +59,15 @@ export default function Discover() {
                 <div className="mime">
                     <img src={mime2} alt="Mime 2" />
                     <span className="text">
-                        <h2>Discover How CookMate Enhances Your Cooking Journey</h2>
+                        <h2>Enhance Your Cooking Journey.</h2>
                         <p>CookMate offers tools to elevate your cooking experience, from saving and sharing your favorite recipes to getting personalized meal suggestions.</p>
                         <span className="subtext-parent">
                             <span className="subtext">
-                                <h3>Save and Share</h3>
-                                <p>Save your favorite recipes and share them with friends and family to inspire new cooking adventures together.</p>
+                                <h3>Save & Share</h3>
+                                <p>Save and share your favorite recipes with friends and family to inspire new cooking adventures together.</p>
                             </span>
                             <span className="subtext">
-                                <h3>Personalized Recommendations</h3>
+                                <h3>Personalized</h3>
                                 <p>Get recipe suggestions tailored to your preferences and discover new dishes that match your taste.</p>
                             </span>
                         </span>

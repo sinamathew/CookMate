@@ -22,10 +22,15 @@ div.hero-section > h1 {
 }
 
 div.hero-section > p {
-    color: #000;
+    color: #fff;
     font-size: 1.2rem;
     margin-bottom: 40px;
     max-width: 500px;
+}
+
+div.hero-section > p > span#red {
+    color: rgb(245, 80, 80);
+    font-weight: bold;
 }
 
 div.hero-section > div.hero-button > button {
@@ -34,16 +39,59 @@ div.hero-section > div.hero-button > button {
     padding: 10px;
     font-size: 1.2rem;
     cursor: pointer;
+    color: #fff;
 }
 
 div.hero-section > div.hero-button > button.start {
     background-color: rgb(245, 37, 9);
-    color: #000;
     margin-right: 10px;
 }
 
 div.hero-section > div.hero-button > button.learn {
     background-color: transparent;
-    color: #000;
     margin-left: 10px;
 }
+
+/* Mobile Device Version */
+@media (max-width: 768px) {
+    div.hero-section {
+      padding: 0 20px 50px 20px;
+      background-size: cover;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: auto;
+    }
+  
+    div.hero-section > h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      max-width: 100%;
+    }
+  
+    div.hero-section > p {
+      font-size: 1rem;
+      margin-bottom: 25px;
+      max-width: 100%;
+    }
+
+    div.hero-section > div.hero-button {
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
+    }
+  
+    div.hero-section > div.hero-button > button {
+      font-size: 1rem;
+      width: 100%;
+      margin: 5px 0;
+      padding: 12px;
+    }
+  
+    div.hero-section > div.hero-button > button.start,
+    div.hero-section > div.hero-button > button.learn {
+      margin-left: 0;
+      margin-right: 0;
+    }
+}
+  
