@@ -7,6 +7,7 @@ import mongoose from 'mongoose';
 import passport from 'passport';
 import LocalStrategy from 'passport-local';
 import { fileURLToPath } from 'url';
+import flash from 'connect-flash';
 import Recipe from './models/recipeModel.js';
 import recipeRouter from './routes/recipeRoute.js';
 import userRouter from './routes/userRoute.js';
@@ -39,6 +40,16 @@ app.use(
     cookie: { secure: false },
   })
 );
+
+// Initialize flash messages
+app.use(flash());
+
+// Middleware to pass flash messages to response locals
+app.use((req, res, next) => {
+  res.locals.success_flash = req.flash('success');
+  res.locals.error_flash = req.flash('error');
+  next();
+});
 
 // Passport initialization
 app.use(passport.initialize());

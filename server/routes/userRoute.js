@@ -46,10 +46,13 @@ userRouter.post('/register', async (req, res) => {
         user: process.env.EMAIL,
         pass: process.env.PASSWORD,
       },
+      tls: {
+        rejectUnauthorized: false,
+      }
     });
 
     // Construct the verification URL
-    const verificationUrl = `http://localhost:3000/verify-email?token=${verificationToken}`;
+    const verificationUrl = `http://cookmate.sinamathew.tech/verify-email?token=${verificationToken}`;
     const mailOptions = {
       from: process.env.EMAIL,
       to: email,
@@ -59,7 +62,7 @@ userRouter.post('/register', async (req, res) => {
 
     await transporter.sendMail(mailOptions);
 
-    res.status(201).json({ message: 'User registered. Please check your email for verification.' });
+    res.redirect('/verify');
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

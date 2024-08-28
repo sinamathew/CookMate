@@ -1,0 +1,80 @@
+.recipe-view {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .recipe-form, .recipe-details {
+    margin-top: 20px;
+  }
+  
+  .recipe-form h2, .recipe-details h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .recipe-form input, .recipe-form textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .recipe-form textarea {
+    resize: vertical;
+  }
+  
+  .recipe-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .recipe-details h3 {
+    margin-top: 20px;
+    font-size: 22px;
+  }
+  
+  .recipe-details ul, .recipe-details ol {
+    margin: 10px 0;
+    padding: 0;
+  }
+  
+  .recipe-details ul li, .recipe-details ol li {
+    margin-bottom: 5px;
+  }
+  
+  .recipe-details p {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+  
+  .btn-update, .btn-edit, .btn-delete {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .btn-update {
+    background: #4CAF50;
+  }
+  
+  .btn-edit {
+    background: #FFC107;
+  }
+  
+  .btn-delete {
+    background: #F44336;
+  }
+  

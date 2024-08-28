@@ -13,12 +13,14 @@ div.auth > form {
 }
   
 div.auth > form > input {
+    border-radius: 5px;
     margin-bottom: 10px;
     padding: 8px;
     font-size: 16px;
 }
   
 div.auth > form > button {
+    border-radius: 5px;
     padding: 10px;
     font-size: 18px;
     background-color: rgb(245, 37, 9);
