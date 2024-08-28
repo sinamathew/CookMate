@@ -76,11 +76,10 @@ const RecipeView = () => {
             required
           />
           <input
-            type="text"
+            type="file"
             name="img"
-            value={formData.img}
-            onChange={handleChange}
-            placeholder="Image URL"
+            onChange={(e) => setFormData({ ...formData, img: e.target.files[0] })}
+            placeholder="Upload Image"
           />
           <textarea
             name="description"
