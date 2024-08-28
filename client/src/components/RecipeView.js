@@ -13,9 +13,13 @@ const RecipeView = () => {
     const fetchRecipe = async () => {
       try {
         const response = await fetch(`/api/recipes/${recipeId}`);
-        const data = await response.json();
-        setRecipe(data);
-        setFormData(data);
+        if (response.ok) {
+          const data = await response.json();
+          setRecipe(data);
+          setFormData(data);
+        } else {
+          console.error('Recipe not found');
+        }
       } catch (error) {
         console.error('Error fetching recipe:', error);
       }
@@ -77,6 +81,7 @@ const RecipeView = () => {
           />
           <input
             type="url"
+            name="img"
             value={formData.img}
             onChange={handleChange}
             placeholder="Image URL"

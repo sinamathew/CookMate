@@ -30,6 +30,7 @@ app.use(express.json());
 // Enable CORS for all routes
 app.use(cors());
 
+
 // Session Setup
 app.use(
   session({
@@ -54,6 +55,15 @@ app.use((req, res, next) => {
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Authentication check middleware
+const isAuthenticated = (req, res, next) => {
+  if (req.isAuthenticated()) { // Assuming req.isAuthenticated is correctly set up
+    return next();
+  }
+  // Redirect to home page if not authenticated
+  res.redirect('/');
+};
+
 // Use the user routes
 app.use('/users', userRouter);
 // Use the recipe routes
@@ -61,6 +71,28 @@ app.use('/api/recipes', recipeRouter);
 
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, '../client/build')));
+
+// Route for '/recipes'
+app.get('/recipes', isAuthenticated, (req, res, next) => {
+  // If authenticated, serve React app for '/recipes'
+  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+});
+
+app.get('/new', isAuthenticated, (req, res, next) => {
+  // If authenticated, serve React app for '/new'
+  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+})
+
+// Redirect login to recipes if auth
+app.get('/login', (req, res, next) => {
+  if (req.isAuthenticated()) {
+    // If authenticated, redirect to the '/recipes' page
+    return res.redirect('/recipes');
+  }
+
+  // If not authenticated, serve the login page
+  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+});
 
 // Catch-all handler to serve the React app for all other routes
 app.get('*', (req, res) => {

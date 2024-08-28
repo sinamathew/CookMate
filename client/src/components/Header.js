@@ -15,6 +15,7 @@ const Header = () => {
     try {
       await fetch('/users/logout', { method: 'POST' }); // Logout the user from the backend
       setIsAuthenticated(false); // Update state
+      window.location.href = '/'; // Redirect to the home page
     } catch (error) {
       console.error("Error logging out:", error);
     }
