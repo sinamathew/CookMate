@@ -1,0 +1,24 @@
+.verify-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .verify-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .verify-container p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+  
+  .verify-container a {
+    color: rgb(245, 35, 9);
+    text-decoration: none;
+  }
+  
+  .verify-container a:hover {
+    text-decoration: underline;
+  }
+  

@@ -1,10 +1,10 @@
 import React from "react";
-import './Hero.css';
+import './RecipeHero.css';
 
-const Hero = () => {
+const RecipeHero = () => {
   return (
-    <section className="hero">
-      <div className="hero-section">
+    <section className="recipe-hero">
+      <div className="recipe-hero-section">
         <h2>Welcome to Our Recipe Collection</h2>
         <p>Search mouth-watering recipes to satisfy your craving.</p>
 
@@ -17,4 +17,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default RecipeHero;

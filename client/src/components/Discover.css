@@ -1,0 +1,258 @@
+div.discover-section {
+    width: auto;
+    background-color: #fff;
+    max-width: 1920px;
+    height: auto;
+    padding: 80px auto 0 auto;
+    margin: 0 auto;
+}
+
+div.discover-section > div.discover {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+div.discover-section > div.discover > h2 {
+    color: rgb(245, 37, 9);
+    margin: 0 auto;
+    padding: 0 auto;
+    padding-bottom: 0;
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: bold;
+
+}
+
+div.discover-section > div.discover > p {
+    margin: 0 auto;
+    padding: 20px 40px auto auto;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+div.discover-section > div.discover > p.tagline {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+div.discover-section > div.discover-features {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 1440px;
+    padding: 20px auto;
+    margin: 20px auto;
+}
+
+div.discover-section > div.discover-features > span {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px auto;
+    margin: 0 auto;
+    width: 30%;
+}
+
+div.discover-section > div.discover-features > span > img {
+    width: 20px;
+    height: 20px;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+div.discover-section > div.discover-features > span > h3 {
+    color: rgb(245, 37, 9);
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+div.discover-section > div.discover-features > span > p {
+    font-size: 1rem;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+
+div.discover-mime {
+    width: 100%;
+    background-color: #fff;
+    max-width: 1920px;
+    padding: 0 auto;
+    margin: 0 auto;
+}
+
+div.discover-mime > div.mime {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    max-width: 1440px;
+    padding: 20px auto;
+}
+
+div.discover-mime > div.mime > img {
+    width: 40%;
+    height: auto;
+    margin-right: 20px;
+    padding: 10px 50px;
+}
+
+div.discover-mime > div.mime > span.text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    width: 60%;
+    padding: 10px 60px;
+    margin: 0 10px auto auto;
+}
+
+div.discover-mime > div.mime > span.text > h2 {
+    color: rgb(245, 37, 9);
+    font-size: 2.4rem;
+    font-weight: bold;
+    padding: 10px 0 10px 0;
+    margin: 10px 0 10px 0;
+}
+
+div.discover-mime > div.mime > span.text > p {
+    font-size: 1rem;
+    padding: 5px auto;
+    margin: 5px auto;
+}
+
+div.discover-mime > div.mime > span.text > span.subtext-parent {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    padding-top: 10px;
+}
+
+div.discover-mime > div.mime > span.text > span.subtext-parent > span.subtext {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    padding: auto;
+    margin: auto;
+}
+
+div.discover-mime > div.mime > span.text > span.subtext-parent > span.subtext > h3 {
+    color: rgb(245, 37, 9);
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-right: 10px;
+    margin-bottom: 0;
+}
+
+div.discover-mime > div.mime > span.text > span.subtext-parent > span.subtext > p {
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+/* Mobile Device Version */
+@media (max-width: 768px) {
+    div.discover-section {
+      padding: 40px 20px;
+    }
+  
+    div.discover-section > div.discover > h2 {
+      font-size: 2rem;
+    }
+  
+    div.discover-section > div.discover > p {
+      font-size: 1rem;
+      padding: 20px 10px;
+    }
+  
+    div.discover-section > div.discover-features {
+      flex-direction: column;
+      padding: 20px 0;
+    }
+  
+    div.discover-section > div.discover-features > span {
+      width: 100%;
+      padding: 20px 0;
+    }
+  
+    div.discover-section > div.discover-features > span > img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 10px;
+    }
+  
+    div.discover-section > div.discover-features > span > h3 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+  
+    div.discover-section > div.discover-features > span > p {
+      font-size: 0.9rem;
+    }
+  
+    div.discover-mime {
+      padding: 40px 20px;
+    }
+  
+    div.discover-mime > div.mime {
+      flex-direction: column;
+      padding: 20px 0;
+      text-align: center;
+    }
+  
+    div.discover-mime > div.mime > img {
+      width: 80%;
+      margin: 0 auto 20px auto;
+      padding: 0;
+    }
+  
+    div.discover-mime > div.mime > span.text {
+      width: 100%;
+      padding: 0;
+    }
+  
+    div.discover-mime > div.mime > span.text > h2 {
+      font-size: 2rem;
+      margin: 10px 0;
+    }
+  
+    div.discover-mime > div.mime > span.text > p {
+      font-size: 1rem;
+      margin: 10px 0;
+    }
+  
+    div.discover-mime > div.mime > span.text > span.subtext-parent {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    div.discover-mime > div.mime > span.text > span.subtext-parent > span.subtext {
+      align-items: center;
+      text-align: center;
+    }
+  
+    div.discover-mime > div.mime > span.text > span.subtext-parent > span.subtext > h3 {
+      font-size: 1.4rem;
+    }
+  
+    div.discover-mime > div.mime > span.text > span.subtext-parent > span.subtext > p {
+      font-size: 0.9rem;
+    }
+}  

@@ -46,10 +46,13 @@ userRouter.post('/register', async (req, res) => {
         user: process.env.EMAIL,
         pass: process.env.PASSWORD,
       },
+      tls: {
+        rejectUnauthorized: false,
+      }
     });
 
     // Construct the verification URL
-    const verificationUrl = `http://localhost:3000/verify-email?token=${verificationToken}`;
+    const verificationUrl = `http://cookmate.sinamathew.tech/verify-email?token=${verificationToken}`;
     const mailOptions = {
       from: process.env.EMAIL,
       to: email,
@@ -59,7 +62,7 @@ userRouter.post('/register', async (req, res) => {
 
     await transporter.sendMail(mailOptions);
 
-    res.status(201).json({ message: 'User registered. Please check your email for verification.' });
+    res.redirect('/verify');
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -89,7 +92,7 @@ userRouter.get('/verify-email', async (req, res) => {
 userRouter.post(
   '/login',
   passport.authenticate('local', {
-    successRedirect: '/dashboard',
+    successRedirect: '/recipes',
     failureRedirect: '/login',
     failureFlash: true,
   })
@@ -97,20 +100,24 @@ userRouter.post(
 
 // Logout Route
 userRouter.post('/logout', (req, res) => {
-  req.logout((err) => {
+  req.logout(err => {
     if (err) {
-      return res.status(500).json({ message: err.message });
+      return res.status(500).json({ message: 'Logout failed' });
     }
+    req.session.destroy(); // Destroy the session after logout
+    res.clearCookie('connect.sid'); // Clear the session cookie
+    res.status(200).json({ message: 'Logged out successfully' });
     res.redirect('/');
   });
 });
 
-userRouter.get('/dashboard', (req, res) => {
-  if (!req.isAuthenticated()) {
-    req.flash('error', 'Unauthorized. Please log in.'); // Set flash message
-    return res.redirect('/login'); 
+// Check the authentication status of the user
+userRouter.get('/check-auth', (req, res) => {
+  if (req.isAuthenticated()) {
+    return res.status(200).json({ isAuthenticated: true, user: req.user });
+  } else {
+    return res.status(200).json({ isAuthenticated: false });
   }
-  res.status(200).json({ message: 'Welcome to your dashboard.' });
 });
 
 export default userRouter;

@@ -1,0 +1,97 @@
+div.hero-section {
+    background: rgba(0, 0, 0, 0.5) url('./images/home-hero-image.jpeg');
+    width: auto;
+    height: 100vh;
+    background-size: cover; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Align items to the bottom */
+    align-items: flex-start; /* Align items to the left */
+    color: #fff;
+    text-align: left;
+    padding: 0 50% 50px 50px;
+    margin-bottom: 0;
+}
+
+div.hero-section > h1 {
+    color: rgb(245, 80, 80);
+    font-size: 4rem;
+    margin-bottom: 20px;
+    max-width: 500px;
+    font-weight: bold;
+}
+
+div.hero-section > p {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    max-width: 500px;
+}
+
+div.hero-section > p > span#red {
+    color: rgb(245, 80, 80);
+    font-weight: bold;
+}
+
+div.hero-section > div.hero-button > button {
+    border: 1px solid rgb(245, 80, 80);
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #fff;
+}
+
+div.hero-section > div.hero-button > button.start {
+    background-color: rgb(245, 37, 9);
+    margin-right: 10px;
+}
+
+div.hero-section > div.hero-button > button.learn {
+    background-color: transparent;
+    margin-left: 10px;
+}
+
+/* Mobile Device Version */
+@media (max-width: 768px) {
+    div.hero-section {
+      padding: 0 20px 50px 20px;
+      background-size: cover;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: auto;
+    }
+  
+    div.hero-section > h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      max-width: 100%;
+    }
+  
+    div.hero-section > p {
+      font-size: 1rem;
+      margin-bottom: 25px;
+      max-width: 100%;
+    }
+
+    div.hero-section > div.hero-button {
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
+    }
+  
+    div.hero-section > div.hero-button > button {
+      font-size: 1rem;
+      width: 100%;
+      margin: 5px 0;
+      padding: 12px;
+    }
+  
+    div.hero-section > div.hero-button > button.start,
+    div.hero-section > div.hero-button > button.learn {
+      margin-left: 0;
+      margin-right: 0;
+    }
+}
+  
